@@ -1,0 +1,938 @@
+<!-- Invitación visual + cuenta regresiva -->
+
+<style>
+
+#invitation-app *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+#invitation-app{
+width:100vw;
+margin-left:calc(-50vw + 50%);
+overflow-x:hidden;
+font-family:sans-serif;
+}
+
+/* secciones fullscreen */
+
+.inv-section{
+height:100vh;
+width:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+overflow:hidden;
+}
+
+/* ===== PRESENTACIÓN VISUAL ===== */
+
+.visual-bg{
+background:
+linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.35)),
+url("https://cdn.shopify.com/s/files/1/0981/4196/2532/files/I_just_watched_this_movie_today_and_I_LOVE_IT_100_recommended_kpopdemonhunters_kpopdemonhuntrix_huntrix_kpop_kpopfyp_kpopgg_movies_movie_purple_purpleaesthetic_idol_fyp_fypshuffles_sh.jpg?v=1770659837");
+background-size:cover;
+background-position:center;
+}
+
+.visual-center{
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+}
+
+/* imágenes */
+
+.img-main{
+width:min(420px,80vw);
+animation:floatMain 4s ease-in-out infinite;
+filter:drop-shadow(0 10px 25px rgba(0,0,0,.5));
+z-index:2;
+}
+
+.img-ten{
+position:absolute;
+width:min(220px,45vw);
+top:-30px;
+animation:glow 3s ease-in-out infinite alternate;
+z-index:3;
+}
+
+.img-bottom{
+position:absolute;
+bottom:20px;
+width:min(260px,60vw);
+animation:floatBottom 5s ease-in-out infinite;
+filter:drop-shadow(0 8px 20px rgba(0,0,0,.4));
+}
+
+.scroll-indicator{
+position:absolute;
+bottom:10px;
+color:white;
+font-size:14px;
+letter-spacing:1px;
+opacity:.8;
+animation:pulse 2s infinite;
+}
+
+/* ===== CUENTA REGRESIVA ===== */
+
+.countdown-section{
+background:#f4efe8;
+flex-direction:column;
+text-align:center;
+}
+
+.count-title{
+font-size:30px;
+margin-bottom:20px;
+}
+
+.countdown{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.time-box{
+background:white;
+padding:18px 14px;
+border-radius:15px;
+min-width:80px;
+box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+
+.time-box span{
+display:block;
+font-size:28px;
+font-weight:bold;
+}
+
+.label{
+font-size:13px;
+opacity:.7;
+}
+
+/* ===== animaciones ===== */
+
+@keyframes floatMain{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+}
+
+@keyframes floatBottom{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(10px);}
+}
+
+@keyframes glow{
+from{filter:drop-shadow(0 0 10px #fff);}
+to{filter:drop-shadow(0 0 25px #ff8cff);}
+}
+
+@keyframes pulse{
+0%,100%{opacity:1;}
+50%{opacity:.4;}
+}
+
+/* responsive */
+
+@media(max-width:600px){
+
+.img-main{width:85vw;}
+.img-ten{width:50vw;}
+.img-bottom{width:65vw;}
+.count-title{font-size:22px;}
+.time-box{min-width:65px;}
+.time-box span{font-size:22px;}
+
+}
+/* ===== brillo mágico para imagen ===== */
+
+.glow-image{
+position:relative;
+animation:glowImage 3s ease-in-out infinite;
+filter:
+drop-shadow(0 0 10px #fff)
+drop-shadow(0 0 25px #ff4fd8)
+drop-shadow(0 0 45px #9b4dff);
+}
+
+/* pulso del brillo */
+
+@keyframes glowImage{
+
+0%{
+filter:
+drop-shadow(0 0 6px #fff)
+drop-shadow(0 0 18px #ff4fd8)
+drop-shadow(0 0 30px #9b4dff);
+}
+
+50%{
+filter:
+drop-shadow(0 0 16px #fff)
+drop-shadow(0 0 35px #ff7ae6)
+drop-shadow(0 0 60px #c26bff);
+}
+
+100%{
+filter:
+drop-shadow(0 0 6px #fff)
+drop-shadow(0 0 18px #ff4fd8)
+drop-shadow(0 0 30px #9b4dff);
+}
+
+}
+
+/* ===== brillo + movimiento imagen 10 años ===== */
+
+.ten-effect{
+
+animation:
+floatTen 4s ease-in-out infinite,
+glowTen 3s ease-in-out infinite;
+
+filter:
+drop-shadow(0 0 8px #fff)
+drop-shadow(0 0 20px #ffccff)
+drop-shadow(0 0 35px #9b4dff);
+}
+
+/* flotación suave */
+
+@keyframes floatTen{
+
+0%,100%{
+transform:translateY(0) scale(1);
+}
+
+50%{
+transform:translateY(-12px) scale(1.05);
+}
+
+}
+
+/* pulso de brillo */
+
+@keyframes glowTen{
+
+0%{
+filter:
+drop-shadow(0 0 6px #fff)
+drop-shadow(0 0 16px #ff7ae6)
+drop-shadow(0 0 30px #9b4dff);
+}
+
+50%{
+filter:
+drop-shadow(0 0 14px #fff)
+drop-shadow(0 0 32px #ffb3ff)
+drop-shadow(0 0 55px #c26bff);
+}
+
+100%{
+filter:
+drop-shadow(0 0 6px #fff)
+drop-shadow(0 0 16px #ff7ae6)
+drop-shadow(0 0 30px #9b4dff);
+}
+
+}
+/* ===== título superior ===== */
+
+.top-title{
+position:absolute;
+top:20px;
+width:100%;
+display:flex;
+justify-content:center;
+z-index:5;
+}
+
+.top-title img{
+
+width:min(520px,90vw); /* MÁS GRANDE */
+
+animation:
+titleFloat 4s ease-in-out infinite,
+titleGlow 3s ease-in-out infinite;
+
+filter:
+drop-shadow(0 8px 20px rgba(0,0,0,.6))
+drop-shadow(0 0 20px #fff)
+drop-shadow(0 0 40px #ff7ae6);
+
+}
+
+/* brillo suave */
+
+@keyframes titleGlow{
+
+0%{
+filter:
+drop-shadow(0 8px 20px rgba(0,0,0,.6))
+drop-shadow(0 0 10px #fff)
+drop-shadow(0 0 25px #ff7ae6);
+}
+
+50%{
+filter:
+drop-shadow(0 8px 20px rgba(0,0,0,.6))
+drop-shadow(0 0 20px #fff)
+drop-shadow(0 0 50px #ffb3ff);
+}
+
+100%{
+filter:
+drop-shadow(0 8px 20px rgba(0,0,0,.6))
+drop-shadow(0 0 10px #fff)
+drop-shadow(0 0 25px #ff7ae6);
+}
+
+}
+
+
+/* ===== layout info inferior ===== */
+
+.bottom-info{
+
+position:absolute;
+bottom:35px;
+width:100%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+gap:25px;
+
+color:white;
+}
+
+/* tarjetas laterales */
+
+.info-card{
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+padding:12px 16px;
+border-radius:16px;
+
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(6px);
+
+font-weight:bold;
+letter-spacing:2px;
+
+text-shadow:
+0 0 6px #fff,
+0 0 12px #ff7ae6;
+
+animation:cardFloat 3s ease-in-out infinite;
+
+min-width:90px;
+}
+
+/* letras */
+
+.info-card span{
+font-size:17px;
+}
+
+/* imagen centro */
+
+.bottom-info img{
+
+width:min(180px,38vw);
+
+animation:centerFloat 4s ease-in-out infinite;
+
+filter:drop-shadow(0 8px 18px rgba(0,0,0,.5));
+}
+
+/* animaciones */
+
+@keyframes cardFloat{
+
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-5px);}
+
+}
+
+@keyframes centerFloat{
+
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(8px);}
+
+}
+
+/* móvil */
+
+@media(max-width:600px){
+
+.bottom-info{
+gap:12px;
+}
+
+.info-card span{
+font-size:14px;
+}
+
+.bottom-info img{
+width:45vw;
+}
+
+}
+
+
+.info-text{
+font-size:16px;
+}
+/* ===== texto elegante debajo de Xiomara ===== */
+
+.inv-text{
+
+margin-top:18px;
+
+font-family:'Playfair Display', serif;
+
+font-size:18px;
+line-height:1.5;
+
+color:white;
+
+text-align:center;
+
+max-width:600px;
+
+letter-spacing:1px;
+
+/* brillo elegante */
+
+text-shadow:
+0 0 6px rgba(255,255,255,.8),
+0 0 14px rgba(255,120,220,.5);
+
+/* fondo suave */
+
+background:rgba(0,0,0,.25);
+padding:14px 18px;
+border-radius:14px;
+
+backdrop-filter:blur(4px);
+
+/* animación */
+
+animation:textFade 2.5s ease;
+
+}
+
+/* animación entrada */
+
+@keyframes textFade{
+
+from{
+opacity:0;
+transform:translateY(15px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* responsive */
+
+@media(max-width:600px){
+
+.inv-text{
+font-size:15px;
+padding:12px;
+}
+
+}
+
+/* ===== cuenta regresiva PRO ===== */
+
+.inv-countdown{
+
+background:
+url("https://cdn.shopify.com/s/files/1/0981/4196/2532/files/kpopdemonhunters.jpg?v=1770670663");
+
+background-size:cover;
+background-position:center;
+
+position:relative;
+overflow:hidden;
+
+}
+
+/* oscurecido elegante */
+
+.count-overlay{
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.85)
+);
+
+}
+
+/* contenido */
+
+.count-content{
+
+position:relative;
+z-index:2;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+
+color:white;
+
+}
+
+/* título */
+
+.inv-countdown .inv-title{
+
+font-family:'Playfair Display', serif;
+
+font-size:36px;
+margin-bottom:25px;
+
+text-shadow:
+0 0 10px rgba(255,120,220,.8),
+0 0 20px rgba(155,77,255,.6);
+
+animation:fadeUp 1.5s ease;
+
+}
+
+/* timer */
+
+.inv-timer{
+
+display:flex;
+gap:18px;
+flex-wrap:wrap;
+justify-content:center;
+
+}
+
+/* cajas glass */
+
+.inv-box{
+
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,.3);
+
+padding:20px 18px;
+border-radius:18px;
+
+min-width:90px;
+
+box-shadow:
+0 0 18px rgba(255,120,220,.5);
+
+animation:floatBox 3s ease-in-out infinite;
+
+}
+
+/* números */
+
+.inv-box span{
+
+font-size:34px;
+font-weight:bold;
+
+text-shadow:
+0 0 10px rgba(255,255,255,.9);
+
+}
+
+/* etiquetas */
+
+.inv-label{
+
+font-size:13px;
+letter-spacing:1px;
+opacity:.9;
+
+}
+
+/* animación flotante */
+
+@keyframes floatBox{
+
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-6px);}
+
+}
+
+/* responsive */
+
+@media(max-width:600px){
+
+.inv-countdown .inv-title{
+font-size:26px;
+}
+
+.inv-box{
+min-width:70px;
+padding:16px;
+}
+
+.inv-box span{
+font-size:24px;
+}
+
+}
+/* ===== UBICACIÓN EN CUADROS ===== */
+
+.inv-location{
+
+background:
+url("https://cdn.shopify.com/s/files/1/0981/4196/2532/files/descarga.jpg?v=1770671082");
+
+background-size:cover;
+background-position:center;
+position:relative;
+
+}
+
+.loc-overlay{
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.85));
+
+}
+
+.loc-container{
+
+position:relative;
+z-index:2;
+text-align:center;
+color:white;
+max-width:1000px;
+
+}
+
+.loc-title{
+
+font-family:'Playfair Display', serif;
+font-size:36px;
+margin-bottom:30px;
+
+text-shadow:0 0 15px rgba(255,120,220,.9);
+
+}
+
+/* GRID */
+
+.loc-grid{
+
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+justify-content:center;
+
+}
+
+/* TARJETAS */
+
+.loc-card{
+
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(8px);
+
+padding:30px;
+border-radius:20px;
+width:300px;
+
+box-shadow:
+0 0 25px rgba(255,255,255,.2);
+
+animation:fadeUp 1.2s ease;
+
+transition:.3s;
+
+}
+
+.loc-card:hover{
+
+transform:translateY(-8px) scale(1.03);
+
+}
+
+/* texto */
+
+.loc-card h3{
+
+margin-bottom:10px;
+font-size:20px;
+
+}
+
+.loc-card p{
+
+opacity:.9;
+margin-bottom:18px;
+
+}
+
+/* botón */
+
+.loc-action{
+
+display:inline-block;
+
+padding:12px 20px;
+border-radius:25px;
+
+background:linear-gradient(45deg,#9b4dff,#ff4fa3);
+
+color:white;
+text-decoration:none;
+font-weight:bold;
+
+box-shadow:0 0 15px rgba(255,120,220,.7);
+
+transition:.3s;
+
+}
+
+.loc-action:hover{
+
+transform:scale(1.08);
+
+}
+
+/* botón whatsapp */
+
+.loc-action.wa{
+
+background:linear-gradient(45deg,#25D366,#128C7E);
+
+box-shadow:0 0 15px rgba(37,211,102,.7);
+
+}
+
+/* responsive */
+
+@media(max-width:700px){
+
+.loc-grid{
+
+flex-direction:column;
+align-items:center;
+
+}
+
+.loc-title{
+font-size:28px;
+}
+
+}
+
+
+</style>
+
+<div id="invitation-app">
+
+<!-- ===== PANTALLA 1 ===== -->
+
+<section class="inv-section visual-bg">
+    <!-- título superior -->
+
+<div class="top-title">
+<img src="https://cdn.shopify.com/s/files/1/0981/4196/2532/files/al_centro_de_arriba.png?v=1770668803">
+</div>
+
+
+<div class="visual-center">
+
+<img class="img-ten ten-effect"
+src="https://cdn.shopify.com/s/files/1/0981/4196/2532/files/10_anos.png?v=1770666562">
+
+<img class="img-main glow-image"
+src="https://cdn.shopify.com/s/files/1/0981/4196/2532/files/Gemini_Generated_Image_sbeaa2sbeaa2sbea.png?v=1770666562">
+<div class="inv-text">
+¡Prepara el look, el escenario y el corazón,<br>
+el show de las guerreras del K-Pop va a comenzar!
+</div>
+
+</div>
+
+<div class="bottom-info">
+
+<div class="info-card">
+
+<span>SÁBADO</span>
+<span>29</span>
+<span>FEBRERO</span>
+
+</div>
+
+
+<img src="https://cdn.shopify.com/s/files/1/0981/4196/2532/files/centro.png?v=1770666803">
+
+<div class="info-card">
+
+<span>HORA</span>
+<span>8:00</span>
+<span>PM</span>
+
+</div>
+
+
+</div>
+
+
+<div class="scroll-indicator">
+⬇ Desliza
+</div>
+
+</section>
+
+<!-- ===== PANTALLA 2 ===== -->
+
+<section class="inv-section inv-countdown">
+
+<div class="count-overlay"></div>
+
+<div class="count-content">
+
+<div class="inv-title">
+Cuenta regresiva
+</div>
+
+<div class="inv-timer">
+
+<div class="inv-box">
+<span id="d">0</span>
+<div class="inv-label">Días</div>
+</div>
+
+<div class="inv-box">
+<span id="h">0</span>
+<div class="inv-label">Horas</div>
+</div>
+
+<div class="inv-box">
+<span id="m">0</span>
+<div class="inv-label">Min</div>
+</div>
+
+<div class="inv-box">
+<span id="s">0</span>
+<div class="inv-label">Seg</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- UBICACIÓN + CONFIRMACIÓN -->
+<section class="inv-section inv-location">
+
+<div class="loc-overlay"></div>
+
+<div class="loc-container">
+
+<h2 class="loc-title">Información del Evento</h2>
+
+<div class="loc-grid">
+
+<!-- CUADRO UBICACIÓN -->
+
+<div class="loc-card">
+
+<h3>Ubicación</h3>
+
+
+<a href="https://maps.app.goo.gl/zrdMFzxMqC329M4j8"
+target="_blank"
+class="loc-action">
+Ver en Google Maps
+</a>
+
+</div>
+
+<!-- CUADRO CONFIRMACIÓN -->
+
+<div class="loc-card">
+
+<h3>Confirmar asistencia</h3>
+
+<p><br>
+por WhatsApp
+</p>
+
+<a href="https://wa.me/51912210358?text=Hola,%20confirmo%20mi%20asistencia%20al%20evento"
+target="_blank"
+class="loc-action wa">
+Confirmar ahora
+</a>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+</div>
+
+<script>
+
+const target = new Date("March 5, 2026 00:00:00").getTime();
+
+function timer(){
+
+const now = new Date().getTime();
+const diff = target - now;
+
+if(diff < 0) return;
+
+document.getElementById("d").innerText =
+Math.floor(diff/(1000*60*60*24));
+
+document.getElementById("h").innerText =
+Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+
+document.getElementById("m").innerText =
+Math.floor((diff%(1000*60*60))/(1000*60));
+
+document.getElementById("s").innerText =
+Math.floor((diff%(1000*60))/1000);
+
+}
+
+setInterval(timer,1000);
+timer();
+
+</script>
